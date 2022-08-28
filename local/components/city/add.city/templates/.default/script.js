@@ -3,8 +3,6 @@ $(document).ready(function () {
     let count = $('#count').val()
     let first = 0
     let addCityParams = composerAddCityParams(step, count, first)
-    console.log(addCityParams)
-
     if(addCityParams !== false) {
         addCity(
             addCityParams.step,
@@ -14,6 +12,7 @@ $(document).ready(function () {
     }
 
 })
+// отправляем ajax запрос для создания городов в количестве равном step
 function addCity(step, count, first) {
     $.ajax({
         url: '/local/components/city/add.city/ajax/ajax.php',
@@ -38,6 +37,8 @@ function addCity(step, count, first) {
         }
     })
 }
+// проверяем данные о шаге и общем количестве элементов
+// чтобы не превысить COUNT
 function composerAddCityParams(step, count, first) {
     if(Number(step) > Number(count) &&  Number(count) === 0) {
         step = count
