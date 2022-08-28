@@ -2,7 +2,7 @@ $(document).ready(function () {
     let step = $('#step').val()
     let count = $('#count').val()
     let first = 0
-    let addCityParams = composerAddCityParams(step, count, first)
+    let addCityParams = composeAddCityParams(step, count, first)
     if(addCityParams !== false) {
         addCity(addCityParams)
     }
@@ -18,7 +18,7 @@ function addCity(data) {
         success: function(response) {
             $('#result').append(response)
             data.first = Number(data.step) + Number(data.first)
-            let addCityParams = composerAddCityParams(data.step, data.count, data.first)
+            let addCityParams = composeAddCityParams(data.step, data.count, data.first)
             if (addCityParams !== false) {
                 addCity(addCityParams)
             }
@@ -30,7 +30,7 @@ function addCity(data) {
 }
 // проверяем данные о шаге и общем количестве элементов
 // чтобы не превысить COUNT
-function composerAddCityParams(step, count, first) {
+function composeAddCityParams(step, count, first) {
     if(Number(step) > Number(count) &&  Number(count) === 0) {
         step = count
     }
