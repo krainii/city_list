@@ -9,5 +9,10 @@
     ],
     "require": {
         "symfony/var-dumper": "v5.4.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "LogInOff\\QrLink\\": "local/classes/LogInOff/QrLink/"
+        }
     }
 }

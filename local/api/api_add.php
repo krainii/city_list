@@ -13,6 +13,7 @@ if($_GET['apikey'] !== 'RUN2021') {
     );
     return;
 }
+
 $APPLICATION->IncludeComponent(
     'city:add.city',
     '',
