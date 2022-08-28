@@ -1,0 +1,13 @@
+{
+    "name": "krainii/bitrix.loc",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "krainii",
+            "email": "dr.orignie@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "v5.4.11"
+    }
+}
