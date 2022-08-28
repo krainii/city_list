@@ -1,0 +1,18 @@
+{
+    "name": "krainii/bitrix.loc",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "krainii",
+            "email": "dr.orignie@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "v5.4.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "LogInOff\\QrLink\\": "local/classes/LogInOff/QrLink/"
+        }
+    }
+}

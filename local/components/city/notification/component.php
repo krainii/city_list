@@ -8,6 +8,9 @@ switch ($arParams['status']) {
     case 'error':
         $template = 'error';
         break;
+    case 'notice':
+        $template = 'notice';
+        break;
 }
 $arResult['message'] = $arParams['message'];
 $this->IncludeComponentTemplate($template);

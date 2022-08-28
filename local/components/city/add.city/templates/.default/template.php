@@ -1,5 +1,6 @@
 <?php
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+CJSCore::Init(array("jquery"));
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,18 +12,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
     <title>Add city</title>
 </head>
 <body>
-    <?php
-        foreach ($arResult['addCity'] as $value) {
-            $APPLICATION->IncludeComponent(
-                'city:notification',
-                '',
-                [
-                    'status' => $value['status'],
-                    'message' => $value['message']
-                ],
-                false
-            );
-        }
-    ?>
+<input id="step" hidden value="<?php echo $arResult['step']?>">
+<input id="count" hidden value="<?php echo $arResult['count']?>">
+    <div id="result"></div>
+<script>
+    BX.message({
+        iblock: '<? echo $arResult['iblock']; ?>'
+    });
+</script>
 </body>
 </html>

@@ -1,18 +1,10 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+
 if($_GET['apikey'] !== 'RUN2021') {
-    $message = 'Неправельный ключ';
-    $APPLICATION->IncludeComponent(
-        'city:notification',
-        '',
-        [
-            'status' => 'error',
-            'message' => $message
-        ],
-        false
-    );
-    return;
+    throw new \Exception("Неправильный ключ api {$_GET['apikey']}");
 }
+
 $APPLICATION->IncludeComponent(
     'city:add.city',
     '',
