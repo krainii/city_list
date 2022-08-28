@@ -28,8 +28,8 @@ class City
      *  @return void
      */
     public function __construct(int $iNumber) {
-        if(empty($iNumber)) {
-            throw new \InvalidArgumentException('Неверный аргумент');
+        if(empty($iNumber) && $iNumber !== 0) {
+            throw new \InvalidArgumentException('Пустой аргумент');
         }
         $this->iNumber = $iNumber;
         $this->composeCityValue();

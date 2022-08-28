@@ -15,5 +15,10 @@ CJSCore::Init(array("jquery"));
 <input id="step" hidden value="<?php echo $arResult['step']?>">
 <input id="count" hidden value="<?php echo $arResult['count']?>">
     <div id="result"></div>
+<script>
+    BX.message({
+        iblock: '<? echo $arResult['iblock']; ?>'
+    });
+</script>
 </body>
 </html>

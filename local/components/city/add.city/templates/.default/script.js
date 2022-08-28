@@ -4,32 +4,23 @@ $(document).ready(function () {
     let first = 0
     let addCityParams = composerAddCityParams(step, count, first)
     if(addCityParams !== false) {
-        addCity(
-            addCityParams.step,
-            addCityParams.count,
-            addCityParams.first
-        )
+        addCity(addCityParams)
     }
 
 })
 // отправляем ajax запрос для создания городов в количестве равном step
-function addCity(step, count, first) {
+function addCity(data) {
     $.ajax({
         url: '/local/components/city/add.city/ajax/ajax.php',
         method: 'post',
         dataType: 'html',
-        data: {step:step, count:count, first:first},
+        data: data,
         success: function(response) {
             $('#result').append(response)
-            first = Number(step) + Number(first)
-            let addCityParams = composerAddCityParams(step, count, first)
-            console.log(addCityParams)
+            data.first = Number(data.step) + Number(data.first)
+            let addCityParams = composerAddCityParams(data.step, data.count, data.first)
             if (addCityParams !== false) {
-                addCity(
-                    addCityParams.step,
-                    addCityParams.count,
-                    addCityParams.first
-                )
+                addCity(addCityParams)
             }
         },
         error: function (error) {
@@ -54,5 +45,6 @@ function composerAddCityParams(step, count, first) {
         step: step,
         count: count,
         first: first,
+        iblock: BX.message('iblock')
     }
 }
